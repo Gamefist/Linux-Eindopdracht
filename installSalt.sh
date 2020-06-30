@@ -1,17 +1,16 @@
 #!/bin/bash
 
-if ! command -v salt;
+if ! dpkg -l salt-minion;
   then
     curl -L https://bootstrap.saltstack.com -o install_salt.sh
     sudo sh install_salt.sh
     if ! grep -Fxq "master: 10.0.6.141" "/etc/salt/minion";
       then
-        # De id: is optioneel en word in dit geval gebruikt om de keys overzichtelijker te maken.
         echo "master: 10.0.6.141" >> /etc/salt/minion
         echo "id: Wordpress" >> /etc/salt/minion
         service salt-minion restart
-        echo "Minion installed succesfully"
+        echo "Salt installed succesfully"
     fi
 else
-  echo "Minion is already installed"
+  echo "Salt is already installed"
 fi
