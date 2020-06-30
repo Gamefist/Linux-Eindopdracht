@@ -1,4 +1,4 @@
-# Linux-Eindopdracht
+## Linux-Eindopdracht
 
 ## scripts folder
 Deze folder bevat alle bestanden die onder /srv/salt/scripts vallen
@@ -24,20 +24,23 @@ Dit script zal dus vervolgens runnen bij het opstarten van de machine en het /ho
 ### installSalt.sh
 Dit script installeert de salt minion op de machine, voegt de master en id variabelen toe aan het config bestand en herstart deze service vervolgens. 
 
-## rsyslog.sls
+## Root folder
+In de root van deze github repo staan alle salt state bestanden
+
+### rsyslog.sls
 default.conf bevat de aangepaste ryslog.conf met de regel: '*\.\* @@10.0.6.140' toegevoegd aan het einde. Deze wordt vervolgens overgekopieerd om de configuratie te voltooien en de service wordt herstart.
 
-## munin.sls
+### munin.sls
 default.conf bevat de aangepaste munin-node.conf met de regel: 'allow ^10\.0\.6\.141' erin. Deze wordt vervolgens overkopieerd om de configuratie te voltooien en de service wordt herstart.
 
-## docker.sls
+### docker.sls
 Deze state voert het bash script docker.sh uit op een minion
 
-## wordpress.sls
+### wordpress.sls
 Deze state voert het bash script wordpress.sh uit op een minion
 
-## update.sls 
+### update.sls 
 Deze state voert sudo apt-get update & sudo apt-get upgrade uit op een minion
 
-## top.sls
+### top.sls
 Dit bestand bevat alle states en voert ze op de juiste minions uit (Word standaard uitgevoerd bij een High-State)
