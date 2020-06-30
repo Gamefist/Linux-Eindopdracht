@@ -1,0 +1,12 @@
+#!/bin/bash
+
+### BEGIN INIT INFO
+# Provides:             startup
+# Required-Start        $all
+# Required-Stop:        
+# Default-Start:        2 3 4 5
+# Default-Stop:         
+# Short-Description: Startup Script
+### END INIT INFO
+
+sudo sh /home/dennis/installSalt.sh
