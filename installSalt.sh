@@ -6,6 +6,7 @@ if ! command -v salt;
     sudo sh install_salt.sh
     if ! grep -Fxq "master: 10.0.6.141" "/etc/salt/minion";
       then
+        # De id: is optioneel en word in dit geval gebruikt om de keys overzichtelijker te maken.
         echo "master: 10.0.6.141" >> /etc/salt/minion
         echo "id: Wordpress" >> /etc/salt/minion
         service salt-minion restart
